@@ -1,0 +1,127 @@
+/* Binary Rain Animation */
+.binary-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.binary-digit {
+  position: absolute;
+  color: rgba(0, 255, 0, 0.2);
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  user-select: none;
+}
+
+/* CRT Monitor Effect */
+.crt-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: 
+    linear-gradient(
+      rgba(0, 255, 0, 0.03) 50%,
+      transparent 50%
+    );
+  background-size: 100% 4px;
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  100% { opacity: 1; }
+}
+
+/* Scan Line */
+.scan-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #00ff00,
+    transparent
+  );
+  box-shadow: 0 0 10px #00ff00;
+  z-index: 9998;
+  animation: scanLine 8s linear infinite;
+}
+
+/* Matrix Code Effect */
+.matrix-code {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-code::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    transparent 60%,
+    rgba(0, 255, 0, 0.1) 80%,
+    rgba(0, 255, 0, 0.2) 100%
+  );
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Typewriter Effect */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #00ff00;
+  animation: typewriter 3s steps(40) infinite;
+}
+
+/* Hacker Grid */
+.hacker-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Neon Glow */
+.neon-glow {
+  text-shadow: 
+    0 0 5px #00ff00,
+    0 0 10px #00ff00,
+    0 0 20px #00ff00,
+    0 0 40px #00ff00;
+}
+
+/* Terminal Cursor */
+.terminal-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background-color: #00ff00;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
