@@ -1,7 +1,7 @@
 import { useState } from 'react';
 const Hero =() =>{
     const [typingText, setTypingText] = useState('');
-      const [counters, setCounters] = useState({ projects: 0, years: 0, satisfaction: 0 });
+   const [counters, setCounters] = useState({ projects: 0, years: 0, satisfaction: 0 });
     
   
   return(
