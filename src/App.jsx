@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import Footer from './components/Footer.jsx';
-
+import Hero from './components/Hero.jsx';
+import About from './components/About.jsx';
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [activeSection, setActiveSection] = useState('home');
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [typingText, setTypingText] = useState('');
   const [counters, setCounters] = useState({ projects: 0, years: 0, satisfaction: 0 });
+  const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [techFilter, setTechFilter] = useState('all');
   const canvasRef = useRef(null);
@@ -409,190 +410,9 @@ function App() {
         </div>
       </header>
       
-      {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center relative pt-32 md:pt-20 pb-12 overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div className="text-center lg:text-left">
-              <div className="mb-8">
-                <div className="text-green-400 font-mono text-2xl md:text-3xl mb-2 animate-pulse">
-                  _ ROOT@KALI: ~$
-                </div>
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 font-mono">
-                  <span className="bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
-                    KHALID AFGHANMAL
-                  </span>
-                </h1>
-                <div className="typing-text text-2xl md:text-3xl text-green-400 mb-6 font-mono">
-                  <span className="text-green-300">$ WHOAMI:</span> {' '}
-                  <span className="typed-text bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
-                    {typingText}
-                  </span>
-                  <span className="cursor animate-pulse">_</span>
-                </div>
-                <p className="text-lg md:text-xl text-green-300/80 leading-relaxed max-w-2xl font-mono">
-                  {">"} CEH & PWK Certified | Security Researcher | Full-Stack Developer<br/>
-                  {">"} Specializing in Penetration Testing & Secure Web Development<br/>
-                  {">"} Based in Afghanistan | Serving Clients Worldwide
-                </p>
-              </div>
-              
-              {/* Stats */}
-              <div className="flex justify-center lg:justify-start gap-8 mb-8">
-                {[
-                  { value: counters.projects, label: 'Projects', suffix: '+' },
-                  { value: counters.years, label: 'Years Exp', suffix: '+' },
-                  { value: counters.satisfaction, label: 'Client Sat', suffix: '%' }
-                ].map((stat, idx) => (
-                  <div key={idx} className="text-center">
-                    <div className="stat-number text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent font-mono">
-                      {stat.value}{stat.suffix}
-                    </div>
-                    <div className="text-green-400/70 text-sm font-mono tracking-wider">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-              
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button
-                  onClick={() => scrollToSection('projects')}
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-green-600 to-emerald-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-md hover:shadow-green-500/30 border border-green-500/30 font-mono"
-                >
-                  <span>VIEW PORTFOLIO</span>
-                  <i className="fas fa-terminal" />
-                </button>
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="inline-flex items-center gap-3 bg-black/50 border border-green-500/30 text-green-400 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 hover:bg-green-500/10 shadow-md hover:border-green-500/50 font-mono"
-                >
-                  <span>INITIATE_CONTACT</span>
-                  <i className="fas fa-key" />
-                </button>
-              </div>
-            </div>
-            
-            {/* Profile Image */}
-            <div className="relative flex justify-center">
-              <div className="relative w-80 h-80 md:w-96 md:h-96">
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full animate-pulse" />
-                <div className="absolute inset-2 bg-black rounded-full overflow-hidden shadow-2xl border-4 border-green-500/30">
-                  <img 
-                    src="https://khalidafghanmal.netlify.app/images/khalid.jpeg" 
-                    alt="Khalid Afghanmal" 
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = "https://via.placeholder.com/384x384/00ff00/000000?text=KHALID_AFGHANMAL";
-                    }}
-                  />
-                </div>
-                
-                {/* Floating Icons */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-black/80 backdrop-blur-lg border border-green-500/30 rounded-full flex items-center justify-center animate-float shadow-lg shadow-green-500/20">
-                  <i className="fas fa-terminal text-green-400 text-xl" />
-                </div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-black/80 backdrop-blur-lg border border-green-500/30 rounded-full flex items-center justify-center animate-float shadow-lg shadow-green-500/20" style={{animationDelay: '2s'}}>
-                  <i className="fas fa-shield-alt text-green-400 text-xl" />
-                </div>
-                <div className="absolute top-1/2 -right-8 w-16 h-16 bg-black/80 backdrop-blur-lg border border-green-500/30 rounded-full flex items-center justify-center animate-float shadow-lg shadow-green-500/20" style={{animationDelay: '4s'}}>
-                  <i className="fas fa-bug text-green-400 text-xl" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     <Hero />
+     <About />
       
-      {/* About Section */}
-      <section id="about" className="py-20 relative">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-mono">
-              <span className="bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
-                &gt; SYSTEM_INFO
-              </span>
-            </h2>
-            <div className="w-28 h-1 bg-gradient-to-r from-green-500 to-emerald-600 mx-auto rounded-full" />
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Profile & Stats */}
-            <div className="space-y-10">
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto group">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-green-400 opacity-30 blur-3xl animate-pulse" />
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-green-400 opacity-20 animate-spin-slow" />
-                <div className="absolute inset-2 bg-black rounded-full flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-700 border-4 border-green-500/20">
-                  <img 
-                    src="https://khalidafghanmal.netlify.app/images/a.jpg" 
-                    alt="Profile"
-                    className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full object-cover border-4 border-green-500/30 shadow-lg transition-transform duration-500 group-hover:rotate-3"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = "https://via.placeholder.com/288x288/00ff00/000000?text=SECURITY_EXPERT";
-                    }}
-                  />
-                </div>
-              </div>
-              
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { value: '3+', label: 'Years Experience', color: 'text-green-400' },
-                  { value: '7+', label: 'Projects', color: 'text-emerald-400' },
-                  { value: '100%', label: 'Client Satisfaction', color: 'text-green-300' },
-                  { value: '24/7', label: 'Support', color: 'text-emerald-300' }
-                ].map((stat, idx) => (
-                  <div key={idx} className="text-center p-6 bg-black/50 rounded-xl border border-green-500/20 backdrop-blur-sm hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-500/20">
-                    <div className={`text-4xl font-extrabold mb-2 font-mono ${stat.color}`}>{stat.value}</div>
-                    <div className="text-green-400/70 font-mono text-sm">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Bio & Skills */}
-            <div className="space-y-10">
-              <div>
-                <h3 className="text-3xl font-extrabold text-green-400 mb-6 font-mono">
-                  &gt; WHOAMI
-                </h3>
-                <p className="text-green-300/80 text-lg leading-loose mb-6 font-mono">
-                  [root@kali]~# I'm a <span className="text-green-400 font-bold">Certified Ethical Hacker</span> with
-                  <span className="text-green-400 font-bold"> CEH & PWK certifications</span>. Specializing in penetration testing,
-                  web application security, and secure development practices.
-                </p>
-                <p className="text-green-300/80 text-lg leading-loose font-mono">
-                  [root@kali]~# My mission is to identify vulnerabilities before attackers do, 
-                  and build secure systems that withstand modern threats. I combine development 
-                  expertise with security knowledge to create robust, hack-resistant applications.
-                </p>
-              </div>
-              
-              {/* Skills */}
-              <div>
-                <h4 className="text-2xl font-bold text-green-400 mb-6 font-mono">&gt; CORE_COMPETENCIES</h4>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { icon: 'fas fa-terminal', label: 'Penetration Testing' },
-                    { icon: 'fas fa-code', label: 'Secure Development' },
-                    { icon: 'fas fa-shield-alt', label: 'Security Auditing' },
-                    { icon: 'fas fa-network-wired', label: 'Network Security' }
-                  ].map((skill, idx) => (
-                    <div key={idx} className="flex items-center space-x-3 p-3 bg-black/50 rounded-lg border border-green-500/20 hover:bg-green-500/10 transition-all duration-300">
-                      <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-                        <i className={`${skill.icon} text-white text-sm`} />
-                      </div>
-                      <span className="text-green-300 font-mono text-sm">{skill.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       
       {/* Technologies Section */}
       <section id="skills" className="py-24 relative overflow-hidden">
