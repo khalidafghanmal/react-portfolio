@@ -5,7 +5,7 @@ const About = ()=>{
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-mono">
               <span className="bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
-                &gt; SYSTEM_INFO
+                &gt; Information
               </span>
             </h2>
             <div className="w-28 h-1 bg-gradient-to-r from-green-500 to-emerald-600 mx-auto rounded-full" />
