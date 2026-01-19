@@ -27,7 +27,7 @@ A modern **hacker-style personal portfolio** built for showcasing frontend skill
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/khalidafghanmal/react-portfolio
 
 
 Install dependencies:
