@@ -1,158 +1,45 @@
-import React, { useState } from 'react';
+import React from 'react'
 
 const Projects = () => {
-  const [activeTab, setActiveTab] = useState('all');
-  
-  const projects = {
-    all: [
-      {
-        id: 1,
-        title: 'SECURITY AUDIT SYSTEM',
-        category: 'security',
-        description: 'Automated vulnerability scanner with real-time reporting',
-        tech: ['Python', 'React', 'Docker', 'MongoDB'],
-        status: 'ACTIVE',
-        access: 'RESTRICTED',
-      },
-      {
-        id: 2,
-        title: 'PENETRATION TESTING FRAMEWORK',
-        category: 'security',
-        description: 'Custom framework for web application security testing',
-        tech: ['Python', 'Flask', 'Celery', 'Redis'],
-        status: 'DEPLOYED',
-        access: 'PRIVATE',
-      },
-      {
-        id: 3,
-        title: 'E-COMMERCE SECURITY SUITE',
-        category: 'web',
-        description: 'Security plugins for Shopify and WordPress',
-        tech: ['PHP', 'JavaScript', 'MySQL', 'Redis'],
-        status: 'LIVE',
-        access: 'PUBLIC',
-      },
-      {
-        id: 4,
-        title: 'NETWORK MONITORING DASHBOARD',
-        category: 'tools',
-        description: 'Real-time network traffic analysis and threat detection',
-        tech: ['Node.js', 'Vue.js', 'WebSocket', 'PostgreSQL'],
-        status: 'BETA',
-        access: 'INTERNAL',
-      },
-    ],
-    security: [
-      // Security projects
-    ],
-    web: [
-      // Web development projects
-    ],
-    tools: [
-      // Tools projects
-    ]
-  };
-
+   const projects = [
+    { name: 'Security Dashboard', desc: 'Real-time threat monitoring system', tags: ['React', 'Node.js', 'Security'] },
+    { name: 'PenTest Toolkit', desc: 'Automated penetration testing suite', tags: ['Python', 'Security', 'Automation'] },
+    { name: 'Encrypted Messenger', desc: 'End-to-end encrypted chat application', tags: ['React', 'Crypto', 'WebRTC'] },
+  ];
   return (
-    <section id="projects" className="py-20 relative">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="neon-glow">PROJECT_REPOSITORY</span>
+      <section id="projects" className="py-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-mono">
+            <span className="bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
+              &gt; PROJECTS
+            </span>
           </h2>
-          <div className="h-1 w-32 bg-hacker-green mx-auto mb-4"></div>
-          <p className="terminal-text max-w-2xl mx-auto">
-            Classified projects involving cybersecurity, development, and research
-          </p>
-        </div>
-
-        {/* Project Filters */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {['all', 'security', 'web', 'tools'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2 border-2 font-mono uppercase transition-all ${
-                activeTab === tab
-                  ? 'border-hacker-green bg-terminal-bg shadow-[0_0_15px_#00ff00]'
-                  : 'border-hacker-green/30 hover:border-hacker-green'
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects[activeTab].map((project) => (
-            <div
-              key={project.id}
-              className="matrix-border p-6 bg-terminal-bg/30 hover:bg-terminal-bg/50 transition-all duration-300 group"
-              data-aos="fade-up"
-            >
-              {/* Project Header */}
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-hacker-green transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="flex items-center space-x-4 text-sm">
-                    <span className={`px-2 py-1 rounded ${
-                      project.status === 'ACTIVE' ? 'bg-green-900/50 text-green-400' :
-                      project.status === 'DEPLOYED' ? 'bg-blue-900/50 text-blue-400' :
-                      'bg-yellow-900/50 text-yellow-400'
-                    }`}>
-                      STATUS: {project.status}
-                    </span>
-                    <span className={`px-2 py-1 rounded ${
-                      project.access === 'RESTRICTED' ? 'bg-red-900/50 text-red-400' :
-                      project.access === 'PRIVATE' ? 'bg-orange-900/50 text-orange-400' :
-                      'bg-green-900/50 text-green-400'
-                    }`}>
-                      ACCESS: {project.access}
-                    </span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, idx) => (
+              <div key={idx} className="rounded-2xl overflow-hidden shadow-2xl bg-black/50 border border-green-500/20 hover:border-green-500/50 transition-all duration-300 hover:-translate-y-2">
+                <div className="h-48 relative overflow-hidden rounded-t-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-600/50 to-emerald-700/40" />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <i className="fas fa-lock text-6xl text-green-400/80" />
                   </div>
                 </div>
-                <div className="text-3xl text-hacker-green/50 group-hover:text-hacker-green transition-colors">
-                  <i className="fa fa-lock"></i>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-green-400 font-mono">{project.name}</h3>
+                  <p className="text-green-300/80 mb-4 font-mono">{project.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIdx) => (
+                      <span key={tagIdx} className="bg-green-500/10 text-green-400 text-xs px-3 py-1 rounded-full border border-green-500/30 font-mono">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-
-              {/* Project Description */}
-              <p className="text-hacker-green/80 mb-6">
-                {project.description}
-              </p>
-
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 text-xs border border-hacker-green/30 rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex space-x-4">
-                <button className="hacker-btn text-sm px-4 py-2">
-                  <i className="fa fa-eye mr-2"></i>
-                  VIEW SOURCE
-                </button>
-                <button className="hacker-btn border-dashed text-sm px-4 py-2">
-                  <i className="fa fa-terminal mr-2"></i>
-                  DEMO ACCESS
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+  )
+}
 
-export default Projects;
+export default Projects

@@ -5,6 +5,9 @@ import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
 import Technologies from './components/Technologies.jsx';
 import Services from './components/Services.jsx';
+import Timeline from './components/Timeline.jsx';
+import Projects from './components/Projects.jsx';
+import Contact from './components/Contact.jsx'
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [typingText, setTypingText] = useState('');
@@ -264,20 +267,8 @@ function App() {
     { title: 'Incident Response', icon: 'fas fa-first-aid', desc: '24/7 emergency security response services' },
   ];
 
-  const timeline = [
-    { year: '2019', title: 'Started Computer Basics', desc: 'Built foundation in Windows, MS Office, and basic programming concepts' },
-    { year: '2022', title: 'Web Development Journey', desc: 'Mastered HTML, CSS, JavaScript and built first websites' },
-    { year: '2023', title: 'Full-Stack Development', desc: 'Learned React, Laravel, Node.js for full-stack applications' },
-    { year: '2023', title: 'Security Certification', desc: 'Obtained CEH and PWK certifications in cybersecurity' },
-    { year: '2024', title: 'Professional Experience', desc: 'Started working as security consultant and developer' },
-    { year: '2025', title: 'Advanced Security', desc: 'Specialized in advanced penetration testing and threat hunting' },
-  ];
 
-  const projects = [
-    { name: 'Security Dashboard', desc: 'Real-time threat monitoring system', tags: ['React', 'Node.js', 'Security'] },
-    { name: 'PenTest Toolkit', desc: 'Automated penetration testing suite', tags: ['Python', 'Security', 'Automation'] },
-    { name: 'Encrypted Messenger', desc: 'End-to-end encrypted chat application', tags: ['React', 'Crypto', 'WebRTC'] },
-  ];
+ 
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-black text-green-100' : 'bg-gray-900 text-green-300'}`}>
@@ -293,14 +284,7 @@ function App() {
       
       {/* Scroll Progress Bar */}
       <div className="scroll-progress fixed top-0 left-0 h-1 bg-gradient-to-r from-green-500 to-emerald-600 z-50 transition-all duration-100" />
-      
-      {/* Theme Toggle */}
-      <button
-        onClick={() => setIsDarkMode(!isDarkMode)}
-        className="fixed top-8 right-8 w-12 h-12 bg-black/80 backdrop-blur-lg border border-green-500/30 rounded-full flex items-center justify-center cursor-pointer z-40 transition-all duration-300 hover:scale-110 hover:border-green-500 shadow-lg hover:shadow-green-500/20"
-      >
-        <i className={`fas ${isDarkMode ? 'fa-sun text-green-400' : 'fa-moon text-green-400'}`} />
-      </button>
+  
       
       {/* Floating Navigation */}
       <div className="hidden lg:flex fixed right-8 top-1/2 transform -translate-y-1/2 flex-col gap-4 z-40">
@@ -397,188 +381,15 @@ function App() {
      <About />
      <Technologies />
      <Services />
+     <Timeline />
+     <Projects />
+     <Contact />
       
       
     
       
-      {/* Timeline Section */}
-      <section id="timeline" className="relative py-24 overflow-hidden">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-8 font-mono">
-            <span className="bg-gradient-to-r from-green-500 via-emerald-500 to-green-400 bg-clip-text text-transparent">
-              &gt; TIMELINE
-            </span>
-          </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full" />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-green-500 via-emerald-400 to-green-600 -translate-x-1/2" />
-          
-          <div className="space-y-24">
-            {timeline.map((item, idx) => (
-              <div key={idx} className={`relative flex items-center flex-col md:flex-row ${idx % 2 === 0 ? '' : 'md:flex-row-reverse'} group`}>
-                <div className={`w-full md:w-6/12 ${idx % 2 === 0 ? 'md:pr-8 text-center md:text-right' : 'md:pl-8 text-center md:text-left'} mt-20 md:mt-0`}>
-                  <div className="relative p-8 rounded-3xl border border-green-500/30 bg-black/40 backdrop-blur-2xl shadow-2xl hover:shadow-3xl hover:border-green-400/50 transition-all duration-700 transform hover:-translate-y-1 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
-                    <div className="relative z-10">
-                      <div className="inline-flex items-center px-6 py-3 mb-6 text-sm font-bold rounded-full border border-green-500/30 bg-green-500/10 backdrop-blur-lg font-mono">
-                        <i className="fas fa-calendar-alt mr-3 text-green-400" />
-                        <span className="text-green-300">{item.year}</span>
-                      </div>
-                      <h3 className="text-2xl font-bold mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-green-500 group-hover:to-emerald-500 transition-all duration-500 font-mono">
-                        {item.title}
-                      </h3>
-                      <p className="text-green-300/80 leading-relaxed text-lg group-hover:text-green-300 transition-colors duration-500 font-mono">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-700 rounded-full border-4 border-black flex items-center justify-center z-10 shadow-2xl shadow-green-500/30 group-hover:scale-110 transition-transform duration-500">
-                  <div className="absolute -inset-3 bg-gradient-to-r from-green-500/30 to-emerald-500/30 rounded-full animate-ping" />
-                  <i className="fas fa-terminal text-white text-sm z-10" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Projects Section */}
-      <section id="projects" className="py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-mono">
-            <span className="bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
-              &gt; PROJECTS
-            </span>
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, idx) => (
-              <div key={idx} className="rounded-2xl overflow-hidden shadow-2xl bg-black/50 border border-green-500/20 hover:border-green-500/50 transition-all duration-300 hover:-translate-y-2">
-                <div className="h-48 relative overflow-hidden rounded-t-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-600/50 to-emerald-700/40" />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <i className="fas fa-lock text-6xl text-green-400/80" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-green-400 font-mono">{project.name}</h3>
-                  <p className="text-green-300/80 mb-4 font-mono">{project.desc}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIdx) => (
-                      <span key={tagIdx} className="bg-green-500/10 text-green-400 text-xs px-3 py-1 rounded-full border border-green-500/30 font-mono">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
       {/* Contact Section */}
-      <section id="contact" className="py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-mono">
-            <span className="bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
-              &gt; CONTACT
-            </span>
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              <div className="rounded-2xl p-8 shadow-2xl bg-black/50 border border-green-500/20">
-                <h3 className="text-2xl font-bold mb-6 text-green-400 font-mono">&gt; CONTACT_INFO</h3>
-                <div className="space-y-6">
-                  <div className="flex items-center">
-                    <div className="bg-green-500/10 rounded-full p-3 mr-4 border border-green-500/30">
-                      <i className="fas fa-envelope text-green-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-green-400 font-mono">EMAIL</h4>
-                      <p className="text-green-300/80 font-mono">khalidafghanmal2003@gmail.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="bg-green-500/10 rounded-full p-3 mr-4 border border-green-500/30">
-                      <i className="fas fa-phone text-green-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-green-400 font-mono">PHONE</h4>
-                      <p className="text-green-300/80 font-mono">+93 793237732</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="bg-green-500/10 rounded-full p-3 mr-4 border border-green-500/30">
-                      <i className="fas fa-map-marker-alt text-green-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-green-400 font-mono">LOCATION</h4>
-                      <p className="text-green-300/80 font-mono">Kabul, Afghanistan</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-8 flex space-x-4">
-                  {[
-                    { icon: 'fab fa-linkedin-in', url: 'https://linkedin.com/in/khalidafghanmal' },
-                    { icon: 'fab fa-github', url: 'https://github.com/khalidafghanmal' },
-                    { icon: 'fab fa-twitter', url: 'https://twitter.com/khalidafghanmal' },
-                    { icon: 'fab fa-facebook-f', url: 'https://facebook.com/khalid.afghanmal' }
-                  ].map((social, idx) => (
-                    <a
-                      key={idx}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-green-500/10 w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-500/20 transition border border-green-500/30 hover:border-green-500/50"
-                    >
-                      <i className={`${social.icon} text-green-400`} />
-                    </a>
-                  ))}
-                </div>
-              </div>
-              <div className="rounded-2xl p-8 shadow-2xl bg-black/50 border border-green-500/20">
-                <h3 className="text-2xl font-bold mb-6 text-green-400 font-mono">&gt; SEND_MESSAGE</h3>
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-green-400/70 mb-2 font-mono">NAME</label>
-                    <input 
-                      type="text" 
-                      className="bg-black/50 border border-green-500/30 w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500/50 text-green-300 font-mono placeholder-green-500/50"
-                      placeholder="Enter your name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-green-400/70 mb-2 font-mono">EMAIL</label>
-                    <input 
-                      type="email" 
-                      className="bg-black/50 border border-green-500/30 w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500/50 text-green-300 font-mono placeholder-green-500/50"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-green-400/70 mb-2 font-mono">MESSAGE</label>
-                    <textarea 
-                      rows="4" 
-                      className="bg-black/50 border border-green-500/30 w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500/50 text-green-300 font-mono placeholder-green-500/50"
-                      placeholder="Type your message..."
-                    />
-                  </div>
-                  <button 
-                    type="submit" 
-                    className="bg-gradient-to-r from-green-600 to-emerald-700 border border-green-500/30 w-full py-3 rounded-lg font-medium hover:scale-105 transition text-white font-mono uppercase tracking-wider"
-                  >
-                    SEND MESSAGE
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     
       <Footer /> 
     </div>
   );
