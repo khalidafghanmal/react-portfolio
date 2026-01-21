@@ -14,8 +14,13 @@ A modern **hacker-style personal portfolio** built for showcasing frontend skill
 ---
 
 ## Demo
-## <a href="[https](https://matrixuiportfolio.netlify.app/)">Demo</a>
-![image]https://i.ibb.co/ksFtXvRZ/jj.png
+
+Check out the live demo: [Demo](https://matrixuiportfolio.netlify.app/)
+
+![Portfolio Screenshot](https://i.ibb.co/ksFtXvRZ/jj.png)
+
+---
+
 ## Features
 
 - Hacker / cyberpunk UI theme
@@ -32,14 +37,3 @@ Clone the repository:
 ```bash
 git clone https://github.com/khalidafghanmal/react-portfolio
 cd react-portfolio
-
-Install dependencies:
-npm install
-Start development server:
-npm run dev
-Build for production:
-
-npm run build
-
-
-Developed by Khalid Afghanmal
