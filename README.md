@@ -28,7 +28,8 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/khalidafghanmal/react-portfolio
-```
+```bash
+
 cd react-portfolio
 
 Install dependencies:
