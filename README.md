@@ -28,20 +28,12 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/khalidafghanmal/react-portfolio
-```bash
-
 cd react-portfolio
 
-Install dependencies:
-
+```bashInstall dependencies:
 npm install
-
-
 Start development server:
-
 npm run dev
-
-
 Build for production:
 
 npm run build
